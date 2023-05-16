@@ -1,4 +1,5 @@
 using System.Collections;
+using Characters;
 using Unity.Services.Lobbies;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,7 @@ namespace Lobby
     public class LobbyManager : MonoBehaviour
     {
         [SerializeField] private Button playButton;
+        private ICharacterLoader _characterLoader;
         private Unity.Services.Lobbies.Models.Lobby CurrentLobby { get; set; }
         private string lobbyId;
         
@@ -43,6 +45,12 @@ namespace Lobby
                 if (lobby.Players.Count > 1)
                 {
                     playButton.gameObject.SetActive(true);
+                }
+
+                foreach (var player in lobby.Players)
+                {
+                    var characterData = (byte[]) player.Data["Character_Data"].Value;
+                    _characterLoader.LoadCharacter(player.Id, characterData);
                 }
             }
             StartCoroutine(GetLobby(0.0001f));
