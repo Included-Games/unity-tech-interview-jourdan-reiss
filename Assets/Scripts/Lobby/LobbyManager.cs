@@ -1,11 +1,13 @@
 using System.Collections;
 using Unity.Services.Lobbies;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Lobby
 {
     public class LobbyManager : MonoBehaviour
     {
+        [SerializeField] private Button playButton;
         private Unity.Services.Lobbies.Models.Lobby CurrentLobby { get; set; }
         private string lobbyId;
         
@@ -36,6 +38,13 @@ namespace Lobby
         {
             var task = Lobbies.Instance.GetLobbyAsync(lobbyId);
             var lobby = task.GetAwaiter().GetResult();
+            if (lobby != CurrentLobby)
+            {
+                if (lobby.Players.Count > 1)
+                {
+                    playButton.gameObject.SetActive(true);
+                }
+            }
             StartCoroutine(GetLobby(0.0001f));
         }
         
