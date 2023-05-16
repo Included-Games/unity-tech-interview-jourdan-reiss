@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Linq;
+using System.Text;
 using Characters;
 using UI;
 using Unity.Services.Lobbies;
@@ -58,7 +59,7 @@ namespace Lobby
 
                 foreach (var player in lobby.Players)
                 {
-                    var characterData = (byte[]) player.Data["Character_Data"].Value;
+                    var characterData = Encoding.ASCII.GetBytes(player.Data["Character_Data"].Value);
                     _characterLoader.LoadCharacter(player.Id, characterData);
                 }
             }
