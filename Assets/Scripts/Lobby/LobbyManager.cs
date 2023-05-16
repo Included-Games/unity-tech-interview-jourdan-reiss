@@ -1,14 +1,15 @@
 using System.Collections;
+using System.Linq;
 using Characters;
+using UI;
 using Unity.Services.Lobbies;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Lobby
 {
     public class LobbyManager : MonoBehaviour
     {
-        [SerializeField] private Button playButton;
+        [SerializeField] private PlayButton playButton;
         private ICharacterLoader _characterLoader;
         private Unity.Services.Lobbies.Models.Lobby CurrentLobby { get; set; }
         private string lobbyId;
@@ -42,9 +43,17 @@ namespace Lobby
             var lobby = task.GetAwaiter().GetResult();
             if (lobby != CurrentLobby)
             {
+                var playerIds = new string[4];
+                var index = 0;
+                foreach (var player in lobby.Players)
+                {
+                    playerIds[index] = player.Id;
+                    index++;
+                }
                 if (lobby.Players.Count > 1)
                 {
                     playButton.gameObject.SetActive(true);
+                    playButton.PlayerIds = playerIds.ToList();
                 }
 
                 foreach (var player in lobby.Players)
