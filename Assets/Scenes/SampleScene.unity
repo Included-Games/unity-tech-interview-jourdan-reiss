@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 248821707}
   - component: {fileID: 248821706}
   - component: {fileID: 248821705}
+  - component: {fileID: 248821708}
   m_Layer: 5
   m_Name: InputField (TMP)
   m_TagString: Untagged
@@ -352,6 +353,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248821703}
   m_CullTransparentMesh: 1
+--- !u!114 &248821708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248821703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d6261c4fed4a87bb50f4a95fc51f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _joinLobbyButton: {fileID: 2107637640}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,6 +730,7 @@ GameObject:
   - component: {fileID: 1276619388}
   - component: {fileID: 1276619387}
   - component: {fileID: 1276619386}
+  - component: {fileID: 1276619389}
   m_Layer: 5
   m_Name: HostLobbyButton
   m_TagString: Untagged
@@ -826,6 +841,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1276619384}
   m_CullTransparentMesh: 1
+--- !u!114 &1276619389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276619384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9442abaa185d4bf480208e2da3a0ae98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LobbyManager: {fileID: 1398151413}
 --- !u!1 &1323574465
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,6 +957,51 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1398151412
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1398151414}
+  - component: {fileID: 1398151413}
+  m_Layer: 0
+  m_Name: LobbyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1398151413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398151412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01039beba3d94dd59feac9da4a239365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playButton: {fileID: 1695354332}
+--- !u!4 &1398151414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398151412}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1409722486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,6 +1440,7 @@ GameObject:
   - component: {fileID: 1695354331}
   - component: {fileID: 1695354330}
   - component: {fileID: 1695354329}
+  - component: {fileID: 1695354332}
   m_Layer: 5
   m_Name: PlayGameButton
   m_TagString: Untagged
@@ -1438,7 +1512,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1695354330}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1695354332}
+        m_TargetAssemblyTypeName: UI.PlayButton, Assembly-CSharp
+        m_MethodName: ButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1695354330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1477,6 +1563,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695354327}
   m_CullTransparentMesh: 1
+--- !u!114 &1695354332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695354327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dec6cdf21c340d5a7e70fe038471449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1846916070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1626,6 +1724,7 @@ GameObject:
   - component: {fileID: 2107637639}
   - component: {fileID: 2107637638}
   - component: {fileID: 2107637637}
+  - component: {fileID: 2107637640}
   m_Layer: 5
   m_Name: JoinLobbyButton
   m_TagString: Untagged
@@ -1736,3 +1835,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107637635}
   m_CullTransparentMesh: 1
+--- !u!114 &2107637640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107637635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 210b25d8eba34abcb812f8d1e30856a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LobbyManager: {fileID: 1398151413}
+  lobbyCode: 
