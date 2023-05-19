@@ -11,5 +11,10 @@ The screenshots below give you an idea of what the finished feature should look 
 
 The project already contains a sample scene with some basic UI and a few interfaces that your implementation will need to rely on to start matchmaking, load each player's character, get a list of available dungeons, etc...
 
-![Screenshot 2023-05-16 at 14 45 41](https://github.com/Included-Games/unity-tech-interview/assets/2270095/cd811368-e54c-4e85-acd4-431514edd44f)
-![Screenshot 2023-05-16 at 14 46 01](https://github.com/Included-Games/unity-tech-interview/assets/2270095/2e1692ba-d77d-40dc-a848-eee583a7b543)
+# Host User Interface
+
+![Screenshot 2023-05-16 at 14 45 41](https://github.com/Included-Games/unity-tech-interview-jourdan-reiss/assets/2270095/2e3c504c-c47c-41f2-8d85-bc341370d1cb)
+
+# Guest User Interface
+
+![Screenshot 2023-05-16 at 14 46 01](https://github.com/Included-Games/unity-tech-interview-jourdan-reiss/assets/2270095/e5c7f42e-005c-43e8-91ca-dd26fdbb5b22)
